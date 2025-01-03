@@ -6,7 +6,7 @@
     <title>Ibstock Insights</title>
     <style>
         /* Reset */
-        body, h1, h2, p, ul, li, a {
+        body, h1, h2, p, ul, li, a, button {
             margin: 0;
             padding: 0;
             text-decoration: none;
@@ -16,6 +16,8 @@
 
         body {
             font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
         }
 
         header {
@@ -68,6 +70,7 @@
 
         .services {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-around;
             padding: 20px;
             background-color: #ffffff;
@@ -78,6 +81,7 @@
             padding: 10px;
             flex: 1;
             max-width: 300px;
+            margin: 10px;
         }
 
         .services div h2 {
@@ -88,6 +92,20 @@
 
         .services div p {
             color: #333;
+        }
+
+        .services button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #6a1b9a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .services button:hover {
+            background-color: #4a148c;
         }
 
         .features {
@@ -143,6 +161,23 @@
             nav ul.active {
                 display: flex;
             }
+
+            .services {
+                flex-direction: column;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .services div {
+                max-width: 100%;
+            }
+
+            .features ul {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
@@ -174,14 +209,17 @@
         <div>
             <h2>Market Research</h2>
             <p>Learn about how we apply an integrated approach that leads to greater impact.</p>
+            <button onclick="alert('Learn more about Market Research')">Learn More</button>
         </div>
         <div>
             <h2>Evaluation & Learning</h2>
             <p>Our process focuses on delivering insightful data and actionable strategies.</p>
+            <button onclick="alert('Discover Evaluation & Learning details')">Discover</button>
         </div>
         <div>
             <h2>Strategy & Facilitation</h2>
             <p>Helping organizations set clear and impactful directions.</p>
+            <button onclick="alert('Explore Strategy & Facilitation options')">Explore</button>
         </div>
     </section>
 
