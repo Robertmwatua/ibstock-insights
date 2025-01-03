@@ -18,6 +18,10 @@
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
+            background-image: url('https://github.com/Robertmwatua/ibstock-insights/blob/main/istockphoto-1356621118-1024x1024.jpg?raw=true');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
         header {
@@ -25,7 +29,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            background-color: #0077b6;
+            background-color: rgba(0, 119, 182, 0.8);
             color: white;
             position: relative;
         }
@@ -59,7 +63,7 @@
 
         .hero {
             text-align: center;
-            background-color: #caf0f8;
+            background-color: rgba(202, 240, 248, 0.8);
             padding: 50px 20px;
         }
 
@@ -80,7 +84,7 @@
             flex-wrap: wrap;
             justify-content: space-around;
             padding: 20px;
-            background-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.8);
         }
 
         .services div {
@@ -89,7 +93,14 @@
             flex: 1;
             max-width: 300px;
             margin: 10px;
-            animation: slideIn 1.5s ease;
+            animation: popUp 1.5s ease;
+        }
+
+        .services div img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .services div h2 {
@@ -121,13 +132,8 @@
         .features {
             text-align: center;
             padding: 30px 20px;
-            background-color: #ade8f4;
+            background-color: rgba(173, 232, 244, 0.8);
             animation: fadeIn 2s;
-        }
-
-        .features h2 {
-            color: #0077b6;
-            margin-bottom: 20px;
         }
 
         .features ul {
@@ -154,60 +160,8 @@
         footer {
             text-align: center;
             padding: 10px;
-            background-color: #0077b6;
+            background-color: rgba(0, 119, 182, 0.8);
             color: white;
-        }
-
-        #popup-form {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 400px;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            animation: fadeInPopup 0.5s;
-        }
-
-        #popup-form h2 {
-            color: #0077b6;
-            margin-bottom: 15px;
-        }
-
-        #popup-form input, #popup-form button {
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 10px;
-            font-size: 1em;
-        }
-
-        #popup-form button {
-            background-color: #0077b6;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        #popup-form button:hover {
-            background-color: #023e8a;
-        }
-
-        #overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
         }
 
         @keyframes fadeIn {
@@ -219,24 +173,13 @@
             }
         }
 
-        @keyframes slideIn {
-            from {
-                transform: translateY(50px);
+        @keyframes popUp {
+            0% {
+                transform: scale(0.8);
                 opacity: 0;
             }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeInPopup {
-            from {
-                transform: translate(-50%, -60%);
-                opacity: 0;
-            }
-            to {
-                transform: translate(-50%, -50%);
+            100% {
+                transform: scale(1);
                 opacity: 1;
             }
         }
@@ -308,16 +251,19 @@
 
     <section class="services" id="services">
         <div>
+            <img src="https://github.com/Robertmwatua/ibstock-insights/blob/main/istockphoto-1443560890-1024x1024.jpg?raw=true" alt="Market Research">
             <h2>Market Research</h2>
             <p>Learn about how we apply an integrated approach that leads to greater impact.</p>
             <button onclick="alert('Learn more about Market Research')">Learn More</button>
         </div>
         <div>
+            <img src="https://github.com/Robertmwatua/ibstock-insights/blob/main/istockphoto-1717306553-1024x1024.jpg?raw=true" alt="Evaluation & Learning">
             <h2>Evaluation & Learning</h2>
             <p>Our process focuses on delivering insightful data and actionable strategies.</p>
             <button onclick="alert('Discover Evaluation & Learning details')">Discover</button>
         </div>
         <div>
+            <img src="https://github.com/Robertmwatua/ibstock-insights/blob/main/istockphoto-513318100-1024x1024.jpg?raw=true" alt="Strategy & Facilitation">
             <h2>Strategy & Facilitation</h2>
             <p>Helping organizations set clear and impactful directions.</p>
             <button onclick="alert('Explore Strategy & Facilitation options')">Explore</button>
@@ -334,41 +280,14 @@
         </ul>
     </section>
 
-    <div style="text-align:center; margin:20px;">
-        <button onclick="showForm()" style="padding: 10px 20px; background-color: #0077b6; color: white; border: none; border-radius: 5px; font-size: 1em;">Join as Client</button>
-    </div>
-
     <footer id="footer">
         <p>&copy; 2025 Ibstock Insights. All rights reserved.</p>
     </footer>
-
-    <div id="overlay" onclick="hideForm()"></div>
-    <div id="popup-form">
-        <h2>Join as Client</h2>
-        <form>
-            <input type="text" placeholder="Full Name" required>
-            <input type="email" placeholder="Email Address" required>
-            <input type="tel" placeholder="Phone Number (with country code)" required>
-            <input type="password" placeholder="Password" required>
-            <button type="submit">Join Now</button>
-            <button type="button" onclick="hideForm()">Cancel</button>
-        </form>
-    </div>
 
     <script>
         function toggleMenu() {
             const nav = document.querySelector('nav ul');
             nav.classList.toggle('active');
-        }
-
-        function showForm() {
-            document.getElementById('popup-form').style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
-        }
-
-        function hideForm() {
-            document.getElementById('popup-form').style.display = 'none';
-            document.getElementById('overlay').style.display = 'none';
         }
     </script>
 </body>
