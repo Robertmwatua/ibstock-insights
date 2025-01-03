@@ -69,6 +69,12 @@
             animation: fadeIn 2s;
         }
 
+        .hero p {
+            color: #333;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
         .services {
             display: flex;
             flex-wrap: wrap;
@@ -287,19 +293,20 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">Who We Are</a></li>
-                <li><a href="#">What We Do</a></li>
-                <li><a href="#">Resources</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="#hero">Who We Are</a></li>
+                <li><a href="#services">What We Do</a></li>
+                <li><a href="#features">Resources</a></li>
+                <li><a href="#footer">Contact Us</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="hero">
         <h1>We illuminate pathways to greater impact.</h1>
+        <p>Welcome to Ibstock Insights, where data-driven strategies meet innovative solutions to help you achieve your goals.</p>
     </section>
 
-    <section class="services">
+    <section class="services" id="services">
         <div>
             <h2>Market Research</h2>
             <p>Learn about how we apply an integrated approach that leads to greater impact.</p>
@@ -317,7 +324,7 @@
         </div>
     </section>
 
-    <section class="features">
+    <section class="features" id="features">
         <h2>By the Numbers</h2>
         <ul>
             <li><strong>50+</strong> Successful Projects</li>
@@ -331,7 +338,7 @@
         <button onclick="showForm()" style="padding: 10px 20px; background-color: #0077b6; color: white; border: none; border-radius: 5px; font-size: 1em;">Join as Client</button>
     </div>
 
-    <footer>
+    <footer id="footer">
         <p>&copy; 2025 Ibstock Insights. All rights reserved.</p>
     </footer>
 
