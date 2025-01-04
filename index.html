@@ -14,14 +14,22 @@
             color: inherit;
         }
 
+        :root {
+            --background-color: white;
+            --text-color: black;
+            --primary-color: #0077b6;
+            --secondary-color: rgba(255, 255, 255, 0.8);
+        }
+
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
-            background-image: url('https://github.com/Robertmwatua/ibstock-insights/blob/main/istockphoto-1356621118-1024x1024.jpg?raw=true');
+            background-color: var(--background-color);
+            color: var(--text-color);
+            background-image: url('https://github.com/Robertmwatua/ibstock-insights/blob/main/Alandez.jpg?raw=true');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
         }
 
         header {
@@ -29,9 +37,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            background-color: rgba(0, 119, 182, 0.8);
+            background-color: var(--primary-color);
             color: white;
-            position: relative;
         }
 
         header img {
@@ -48,35 +55,66 @@
             font-weight: bold;
         }
 
-        .hamburger {
-            display: none;
-            flex-direction: column;
+        .toggle-button {
+            display: flex;
+            align-items: center;
             cursor: pointer;
         }
 
-        .hamburger div {
-            width: 25px;
-            height: 3px;
+        .toggle-button div {
+            width: 50px;
+            height: 25px;
+            background-color: lightgray;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            position: relative;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-button span {
+            width: 20px;
+            height: 20px;
             background-color: white;
-            margin: 4px 0;
+            border-radius: 50%;
+            position: absolute;
+            transition: transform 0.3s;
+        }
+
+        .dark-mode {
+            --background-color: #333;
+            --text-color: white;
+            --primary-color: #555;
+        }
+
+        .toggle-active div {
+            background-color: #0077b6;
+        }
+
+        .toggle-active span {
+            transform: translateX(25px);
         }
 
         .hero {
             text-align: center;
-            background-color: rgba(202, 240, 248, 0.8);
             padding: 50px 20px;
+            background-color: var(--secondary-color);
         }
 
         .hero h1 {
-            color: #0077b6;
+            color: var(--primary-color);
             font-size: 2.5em;
-            animation: fadeIn 2s;
         }
 
         .hero p {
-            color: #333;
             margin-top: 20px;
             font-size: 1.2em;
+            color: var(--text-color);
+            background-color: rgba(255, 255, 255, 0.8);
+            display: inline-block;
+            padding: 10px;
+            border-radius: 10px;
         }
 
         .services {
@@ -84,7 +122,7 @@
             flex-wrap: wrap;
             justify-content: space-around;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: var(--secondary-color);
         }
 
         .services div {
@@ -93,7 +131,12 @@
             flex: 1;
             max-width: 300px;
             margin: 10px;
-            animation: popUp 1.5s ease;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .services div:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
         }
 
         .services div img {
@@ -104,123 +147,33 @@
         }
 
         .services div h2 {
-            color: #0077b6;
+            color: var(--primary-color);
             font-size: 1.2em;
             margin: 15px 0;
         }
 
-        .services div p {
-            color: #333;
+        .content-paragraphs {
+            margin: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .services button {
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #0077b6;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+        .content-paragraphs h2 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
         }
 
-        .services button:hover {
-            background-color: #023e8a;
-            transform: scale(1.05);
-        }
-
-        .features {
-            text-align: center;
-            padding: 30px 20px;
-            background-color: rgba(173, 232, 244, 0.8);
-            animation: fadeIn 2s;
-        }
-
-        .features ul {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .features ul li {
-            background-color: #ffffff;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-width: 200px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .features ul li:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        .content-paragraphs p {
+            margin-bottom: 20px;
         }
 
         footer {
             text-align: center;
             padding: 10px;
-            background-color: rgba(0, 119, 182, 0.8);
+            background-color: var(--primary-color);
             color: white;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes popUp {
-            0% {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
-            nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                right: 20px;
-                background-color: #0077b6;
-                border-radius: 8px;
-                padding: 10px;
-                z-index: 10;
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            .services {
-                flex-direction: column;
-            }
-
-            .hero h1 {
-                font-size: 2em;
-            }
-
-            .services div {
-                max-width: 100%;
-            }
-
-            .features ul {
-                flex-direction: column;
-                gap: 15px;
-            }
         }
     </style>
 </head>
@@ -229,16 +182,15 @@
         <div class="logo">
             <img src="logo-placeholder.png" alt="Ibstock Insights Logo">
         </div>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
+        <div class="toggle-button" onclick="toggleTheme()">
+            <div>
+                <span></span>
+            </div>
         </div>
         <nav>
             <ul>
                 <li><a href="#hero">Who We Are</a></li>
                 <li><a href="#services">What We Do</a></li>
-                <li><a href="#features">Resources</a></li>
                 <li><a href="#footer">Contact Us</a></li>
             </ul>
         </nav>
@@ -249,35 +201,53 @@
         <p>Welcome to Ibstock Insights, where data-driven strategies meet innovative solutions to help you achieve your goals.</p>
     </section>
 
+    <section class="content-paragraphs">
+        <h2>The Rise of Online Marketing</h2>
+        <p>Online marketing has become a cornerstone of modern business, connecting brands with a global audience. With the growing reliance on the internet, companies can now promote their products and services through digital channels such as social media, email, and search engines. This shift offers unparalleled reach and convenience compared to traditional marketing methods.</p>
+
+        <h2>Benefits of Online Marketing</h2>
+        <p>One key advantage is its cost-effectiveness. Businesses can target specific audiences using tools like Google Ads or Facebook Ads, ensuring every dollar spent delivers results. Additionally, analytics tools provide insights into customer behavior, enabling businesses to refine their strategies for better engagement.</p>
+
+        <h2>Challenges and Adaptation</h2>
+        <p>Despite its benefits, online marketing poses challenges, such as keeping up with changing algorithms and ensuring data privacy. However, businesses that stay informed and adaptable can thrive. By embracing trends like influencer marketing and video content, companies can remain competitive and continue to grow in the dynamic digital landscape.</p>
+    </section>
+
     <section class="services" id="services">
         <div>
             <img src="https://github.com/Robertmwatua/ibstock-insights/blob/main/istockphoto-1443560890-1024x1024.jpg?raw=true" alt="Market Research">
             <h2>Market Research</h2>
             <p>Learn about how we apply an integrated approach that leads to greater impact.</p>
-            <button onclick="alert('Learn more about Market Research')">Learn More</button>
         </div>
         <div>
             <img src="https://github.com/Robertmwatua/ibstock-insights/blob/main/istockphoto-1717306553-1024x1024.jpg?raw=true" alt="Evaluation & Learning">
             <h2>Evaluation & Learning</h2>
             <p>Our process focuses on delivering insightful data and actionable strategies.</p>
-            <button onclick="alert('Discover Evaluation & Learning details')">Discover</button>
         </div>
         <div>
             <img src="https://github.com/Robertmwatua/ibstock-insights/blob/main/istockphoto-513318100-1024x1024.jpg?raw=true" alt="Strategy & Facilitation">
             <h2>Strategy & Facilitation</h2>
             <p>Helping organizations set clear and impactful directions.</p>
-            <button onclick="alert('Explore Strategy & Facilitation options')">Explore</button>
         </div>
-    </section>
-
-    <section class="features" id="features">
-        <h2>By the Numbers</h2>
-        <ul>
-            <li><strong>50+</strong> Successful Projects</li>
-            <li><strong>20+</strong> Years of Experience</li>
-            <li><strong>100%</strong> Client Satisfaction</li>
-            <li><strong>10+</strong> Industry Awards</li>
-        </ul>
+        <div>
+            <img src="https://github.com/Robertmwatua/ibstock-insights/blob/main/Alandez.jpg?raw=true" alt="Innovative Analytics">
+            <h2>Innovative Analytics</h2>
+            <p>Using advanced tools to drive your success.</p>
+        </div>
+        <div>
+            <img src="https://github.com/Robertmwatua/ibstock-insights/blob/main/istockphoto-1413735503-1024x1024.jpg?raw=true" alt="Customized Solutions">
+            <h2>Customized Solutions</h2>
+            <p>Tailored approaches for every unique challenge.</p>
+        </div>
+        <div>
+            <img src="https://github.com/Robertmwatua/ibstock-insights/blob/main/istockphoto-1435434813-1024x1024.jpg?raw=true" alt="Additional Service 3">
+            <h2>Data Visualization</h2>
+            <p>Presenting complex data in easy-to-understand formats.</p>
+        </div>
+        <div>
+            <img src="https://github.com/Robertmwatua/ibstock-insights/blob/main/istockphoto-1360521208-1024x1024.jpg?raw=true" alt="Additional Service 4">
+            <h2>Performance Metrics</h2>
+            <p>Tracking success and identifying areas for improvement.</p>
+        </div>
     </section>
 
     <footer id="footer">
@@ -285,9 +255,11 @@
     </footer>
 
     <script>
-        function toggleMenu() {
-            const nav = document.querySelector('nav ul');
-            nav.classList.toggle('active');
+        function toggleTheme() {
+            const body = document.body;
+            const toggle = document.querySelector('.toggle-button div');
+            body.classList.toggle('dark-mode');
+            toggle.classList.toggle('toggle-active');
         }
     </script>
 </body>
